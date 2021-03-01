@@ -20,49 +20,54 @@ public class Interface extends JFrame {
         // toolbar
         JToolBar toolbar = new JToolBar("Menu");
         toolbar.setFloatable(false);
+        toolbar.setBackground(Color.WHITE);
         topo.add(toolbar);
         // botões da toolbar
         JButton conectar = new JButton("Conectar");
+        conectar.setBackground(Color.WHITE);
         toolbar.add(conectar);
         JButton desconectar = new JButton("Desconectar");
+        desconectar.setBackground(Color.WHITE);
         toolbar.add(desconectar);
 
+        Insets buttonMargin = new Insets(0,0,0,0);
+        
         // inventario1
         JPanel inventario1 = new JPanel();
         topo.add(inventario1, BorderLayout.NORTH);
         JButton[] pecas1 = new JButton[9];
+        // inventario2
         JPanel inventario2 = new JPanel();
         contentPane.add(inventario2, BorderLayout.SOUTH);
         JButton[] pecas2 = new JButton[9];
         // cria peças e insere no inventario1 e no inventario2
         for (int i = 0; i < pecas1.length; i++) {
         	pecas1[i] = new JButton();
+        	pecas1[i].setMargin(buttonMargin);
+        	pecas1[i].setBackground(Color.WHITE);
         	inventario1.add(pecas1[i]);
         	pecas2[i] = new JButton();
+        	pecas2[i].setMargin(buttonMargin);
+        	pecas2[i].setBackground(Color.WHITE);
         	inventario2.add(pecas2[i]);
         }
         // imagens das peças
         ImageIcon verde1 = new ImageIcon(getClass().getResource("verde1.png"));
         ImageIcon verde2 = new ImageIcon(getClass().getResource("verde2.png"));
         ImageIcon verde3 = new ImageIcon(getClass().getResource("verde3.png"));
-        /* falta fazer as imagens a seguir
-        ImageIcon vermelho1 = new ImageIcon(getClass().getResource("vermelho1.png"));
-        ImageIcon vermelho2 = new ImageIcon(getClass().getResource("vermelho2.png"));
-        ImageIcon vermelho3 = new ImageIcon(getClass().getResource("vermelho3.png"));
-        ImageIcon amarelo1 = new ImageIcon(getClass().getResource("amarelo1.png"));
-        ImageIcon amarelo2 = new ImageIcon(getClass().getResource("amarelo2.png"));
-        ImageIcon amarelo3 = new ImageIcon(getClass().getResource("amarelo3.png")); */
         
-        pecas1[0].setIcon(verde1);
-        pecas1[1].setIcon(verde2);
+        pecas1[0].setIcon(verde2);
         pecas2[0].setIcon(verde3);
 
-        // tabuleiro
+        //ImageIcon icon = new ImageIcon(new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
         JPanel tabuleiro = new JPanel();
         tabuleiro.setLayout(new GridLayout(6, 6));
         JButton[] posicoes = new JButton[36];
         for (int i = 0; i < posicoes.length; i++) {
         	posicoes[i] = new JButton();
+        	posicoes[i].setMargin(buttonMargin);
+        	posicoes[i].setBackground(Color.WHITE);
+        	
         	tabuleiro.add(posicoes[i]);
         }
         contentPane.add(tabuleiro, BorderLayout.CENTER);
@@ -71,7 +76,7 @@ public class Interface extends JFrame {
     public static void main(String[] args) {
         Interface frame = new Interface();
         frame.setTitle("Quadrocromia");
-        frame.setSize(1200,800);
+        frame.setSize(800,800);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
