@@ -52,22 +52,45 @@ public class Interface extends JFrame {
         	inventario2.add(pecas2[i]);
         }
         // imagens das peças
+        ImageIcon branco = new ImageIcon(getClass().getResource("branco.png"));
         ImageIcon verde1 = new ImageIcon(getClass().getResource("verde1.png"));
         ImageIcon verde2 = new ImageIcon(getClass().getResource("verde2.png"));
         ImageIcon verde3 = new ImageIcon(getClass().getResource("verde3.png"));
+        ImageIcon vermelho1 = new ImageIcon(getClass().getResource("vermelho1.png"));
+        ImageIcon vermelho2 = new ImageIcon(getClass().getResource("vermelho2.png"));
+        ImageIcon vermelho3 = new ImageIcon(getClass().getResource("vermelho3.png"));
+        ImageIcon amarelo1 = new ImageIcon(getClass().getResource("amarelo1.png"));
+        ImageIcon amarelo2 = new ImageIcon(getClass().getResource("amarelo2.png"));
+        ImageIcon amarelo3 = new ImageIcon(getClass().getResource("amarelo3.png"));
         
         pecas1[0].setIcon(verde2);
-        pecas2[0].setIcon(verde3);
+        pecas1[1].setIcon(vermelho1);
+        pecas1[2].setIcon(vermelho3);
+        pecas1[3].setIcon(amarelo1);
+        pecas1[4].setIcon(verde3);
+        pecas1[5].setIcon(verde1);
+        pecas1[6].setIcon(vermelho2);
+        pecas1[7].setIcon(amarelo2);
+        pecas1[8].setIcon(amarelo1);
+        pecas2[0].setIcon(amarelo3);
+        pecas2[1].setIcon(verde2);
+        pecas2[2].setIcon(vermelho3);
+        pecas2[3].setIcon(amarelo2);
+        pecas2[4].setIcon(vermelho2);
+        pecas2[5].setIcon(vermelho1);
+        pecas2[6].setIcon(verde3);
+        pecas2[7].setIcon(amarelo3);
+        pecas2[8].setIcon(verde1);
 
-        //ImageIcon icon = new ImageIcon(new BufferedImage(64, 64, BufferedImage.TYPE_INT_ARGB));
+        // tabuleiro
         JPanel tabuleiro = new JPanel();
         tabuleiro.setLayout(new GridLayout(6, 6));
         JButton[] posicoes = new JButton[36];
         for (int i = 0; i < posicoes.length; i++) {
         	posicoes[i] = new JButton();
+        	posicoes[i].setIcon(branco);
         	posicoes[i].setMargin(buttonMargin);
         	posicoes[i].setBackground(Color.WHITE);
-        	
         	tabuleiro.add(posicoes[i]);
         }
         contentPane.add(tabuleiro, BorderLayout.CENTER);
@@ -76,7 +99,8 @@ public class Interface extends JFrame {
     public static void main(String[] args) {
         Interface frame = new Interface();
         frame.setTitle("Quadrocromia");
-        frame.setSize(800,800);
+        frame.pack();
+        frame.setMaximumSize(frame.getSize());
         frame.setVisible(true);
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
