@@ -53,34 +53,34 @@ public class Interface extends JFrame {
         }
         // imagens das peças
         ImageIcon branco = new ImageIcon(getClass().getResource("branco.png"));
-        ImageIcon verde1 = new ImageIcon(getClass().getResource("verde1.png"));
-        ImageIcon verde2 = new ImageIcon(getClass().getResource("verde2.png"));
-        ImageIcon verde3 = new ImageIcon(getClass().getResource("verde3.png"));
-        ImageIcon vermelho1 = new ImageIcon(getClass().getResource("vermelho1.png"));
-        ImageIcon vermelho2 = new ImageIcon(getClass().getResource("vermelho2.png"));
-        ImageIcon vermelho3 = new ImageIcon(getClass().getResource("vermelho3.png"));
-        ImageIcon amarelo1 = new ImageIcon(getClass().getResource("amarelo1.png"));
-        ImageIcon amarelo2 = new ImageIcon(getClass().getResource("amarelo2.png"));
-        ImageIcon amarelo3 = new ImageIcon(getClass().getResource("amarelo3.png"));
+        ImageIcon verde2 = new ImageIcon(getClass().getResource("verde2.png")); // 2
+        ImageIcon verde3 = new ImageIcon(getClass().getResource("verde3.png")); // 2
+        ImageIcon vermelho1 = new ImageIcon(getClass().getResource("vermelho1.png")); // 2
+        ImageIcon vermelho2 = new ImageIcon(getClass().getResource("vermelho2.png")); // 2
+        ImageIcon amarelo1 = new ImageIcon(getClass().getResource("amarelo1.png")); // 1
+        ImageIcon amarelo3 = new ImageIcon(getClass().getResource("amarelo3.png")); // 2
+        ImageIcon azul1 = new ImageIcon(getClass().getResource("azul1.png")); // 3
+        ImageIcon azul2 = new ImageIcon(getClass().getResource("azul2.png")); // 2
+        ImageIcon azul3 = new ImageIcon(getClass().getResource("azul3.png")); // 2
         
         pecas1[0].setIcon(verde2);
         pecas1[1].setIcon(vermelho1);
-        pecas1[2].setIcon(vermelho3);
+        pecas1[2].setIcon(azul2);
         pecas1[3].setIcon(amarelo1);
         pecas1[4].setIcon(verde3);
-        pecas1[5].setIcon(verde1);
+        pecas1[5].setIcon(azul1);
         pecas1[6].setIcon(vermelho2);
-        pecas1[7].setIcon(amarelo2);
-        pecas1[8].setIcon(amarelo1);
+        pecas1[7].setIcon(amarelo3);
+        pecas1[8].setIcon(azul3);
         pecas2[0].setIcon(amarelo3);
         pecas2[1].setIcon(verde2);
-        pecas2[2].setIcon(vermelho3);
-        pecas2[3].setIcon(amarelo2);
-        pecas2[4].setIcon(vermelho2);
-        pecas2[5].setIcon(vermelho1);
+        pecas2[2].setIcon(vermelho1);
+        pecas2[3].setIcon(azul1);
+        pecas2[4].setIcon(azul3);
+        pecas2[5].setIcon(vermelho2);
         pecas2[6].setIcon(verde3);
-        pecas2[7].setIcon(amarelo3);
-        pecas2[8].setIcon(verde1);
+        pecas2[7].setIcon(azul2);
+        pecas2[8].setIcon(azul1);
 
         // tabuleiro
         JPanel tabuleiro = new JPanel();
