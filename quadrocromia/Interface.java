@@ -1,6 +1,8 @@
 package quadrocromia;
 
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.*;
 
 public class Interface extends JFrame {
@@ -30,7 +32,7 @@ public class Interface extends JFrame {
         desconectar.setBackground(Color.WHITE);
         toolbar.add(desconectar);
 
-        Insets buttonMargin = new Insets(0,0,0,0);
+        Insets buttonMargin = new Insets(1,1,1,1);
         
         // inventario1
         JPanel inventario1 = new JPanel();
@@ -40,17 +42,33 @@ public class Interface extends JFrame {
         JPanel inventario2 = new JPanel();
         contentPane.add(inventario2, BorderLayout.SOUTH);
         JButton[] pecas2 = new JButton[9];
+        
+        // ações dos botões dos inventários
+        ActionListener eventosInventario = new ActionListener() {
+        	@Override
+			public void actionPerformed(ActionEvent e) {
+        		for (int i = 0; i < pecas1.length; i++) {
+        			pecas1[i].setBackground(Color.WHITE);
+        			pecas2[i].setBackground(Color.WHITE);
+        		}
+        		((JButton) e.getSource()).setBackground(Color.BLACK);
+        	}
+        };
+        
         // cria peças e insere no inventario1 e no inventario2
         for (int i = 0; i < pecas1.length; i++) {
         	pecas1[i] = new JButton();
         	pecas1[i].setMargin(buttonMargin);
         	pecas1[i].setBackground(Color.WHITE);
+        	pecas1[i].addActionListener(eventosInventario);
         	inventario1.add(pecas1[i]);
         	pecas2[i] = new JButton();
         	pecas2[i].setMargin(buttonMargin);
         	pecas2[i].setBackground(Color.WHITE);
+        	pecas2[i].addActionListener(eventosInventario);
         	inventario2.add(pecas2[i]);
         }
+        
         // imagens das peças
         ImageIcon branco = new ImageIcon(getClass().getResource("branco.png"));
         ImageIcon verde2 = new ImageIcon(getClass().getResource("verde2.png")); // 2
@@ -82,6 +100,14 @@ public class Interface extends JFrame {
         pecas2[7].setIcon(azul2);
         pecas2[8].setIcon(azul1);
 
+        // ações dos botões do tabuleiro
+        ActionListener eventosTabuleiro = new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		JOptionPane.showMessageDialog(null, "Selecione uma peça");	
+        	};
+        };
+        
         // tabuleiro
         JPanel tabuleiro = new JPanel();
         tabuleiro.setLayout(new GridLayout(6, 6));
@@ -91,11 +117,14 @@ public class Interface extends JFrame {
         	posicoes[i].setIcon(branco);
         	posicoes[i].setMargin(buttonMargin);
         	posicoes[i].setBackground(Color.WHITE);
+        	posicoes[i].addActionListener(eventosTabuleiro);
         	tabuleiro.add(posicoes[i]);
         }
         contentPane.add(tabuleiro, BorderLayout.CENTER);
     }
 
+    //private void selecionar() {}
+    
     public static void main(String[] args) {
         Interface frame = new Interface();
         frame.setTitle("Quadrocromia");
