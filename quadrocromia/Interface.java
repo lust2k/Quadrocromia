@@ -7,9 +7,12 @@ import javax.swing.*;
 
 public class Interface extends JFrame {
     private static final long serialVersionUID = 5959874721938974760L;
+    protected boolean pecaSelecionada = false;
+    protected boolean conectado = false;
+    protected boolean jogadoresProntos = false;
 
     public Interface() {
-        super();
+    	super();
         // frame
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
@@ -28,10 +31,49 @@ public class Interface extends JFrame {
         JButton conectar = new JButton("Conectar");
         conectar.setBackground(Color.WHITE);
         toolbar.add(conectar);
+        JButton iniciarPartida = new JButton("Iniciar Partida");
+        iniciarPartida.setBackground(Color.WHITE);
+        toolbar.add(iniciarPartida);
         JButton desconectar = new JButton("Desconectar");
         desconectar.setBackground(Color.WHITE);
         toolbar.add(desconectar);
-
+        
+        // ações dos botões da toolbar
+        ActionListener eventosToolbar = new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		if (e.getSource() == conectar) {
+        			if (conectado) {
+        				JOptionPane.showMessageDialog(null, "Você já está conectado.");
+        			} else {
+        				// IMPLEMENTAR CONEXÃO AO SERVIDOR
+        				conectado = true;
+        				JOptionPane.showMessageDialog(null, "Conectado com sucesso.");
+        			}
+        		} else if (e.getSource() == iniciarPartida) {
+        			if (!conectado) {
+        				JOptionPane.showMessageDialog(null, "Você não está conectado.");
+        			} else if (!jogadoresProntos) {
+        				JOptionPane.showMessageDialog(null, "Não foi possível iniciar partida. Não há jogadores suficientes.");
+        			} else {
+        				// IMPLEMENTAR INÍCIO DE PARTIDA
+        			}
+        		} else if (e.getSource() == desconectar) {
+        			if (!conectado) {
+        				JOptionPane.showMessageDialog(null, "Você não está conectado.");
+        			} else {
+        				// IMPLEMENTAR DESCONEXÃO DO SERVIDOR
+        				conectado = false;
+        				JOptionPane.showMessageDialog(null, "Desconectado com sucesso.");
+        			}
+        		}
+        	}
+        };
+        
+        conectar.addActionListener(eventosToolbar);
+        iniciarPartida.addActionListener(eventosToolbar);
+        desconectar.addActionListener(eventosToolbar);
+        
         Insets buttonMargin = new Insets(1,1,1,1);
         
         // inventario1
@@ -52,6 +94,7 @@ public class Interface extends JFrame {
         			pecas2[i].setBackground(Color.WHITE);
         		}
         		((JButton) e.getSource()).setBackground(Color.BLACK);
+        		pecaSelecionada = true;
         	}
         };
         
@@ -70,7 +113,7 @@ public class Interface extends JFrame {
         }
         
         // imagens das peças
-        ImageIcon branco = new ImageIcon(getClass().getResource("branco.png"));
+        ImageIcon branco = new ImageIcon(getClass().getResource("branco.png")); // número de peças:
         ImageIcon verde2 = new ImageIcon(getClass().getResource("verde2.png")); // 2
         ImageIcon verde3 = new ImageIcon(getClass().getResource("verde3.png")); // 2
         ImageIcon vermelho1 = new ImageIcon(getClass().getResource("vermelho1.png")); // 2
@@ -104,7 +147,9 @@ public class Interface extends JFrame {
         ActionListener eventosTabuleiro = new ActionListener() {
         	@Override
         	public void actionPerformed(ActionEvent e) {
-        		JOptionPane.showMessageDialog(null, "Selecione uma peça");	
+        		if (pecaSelecionada == false) {
+        			JOptionPane.showMessageDialog(null, "Selecione uma peça antes de jogar.");
+        		};
         	};
         };
         
