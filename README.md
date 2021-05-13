@@ -12,5 +12,5 @@ Implementação do jogo Quadrocromia para dois jogadores em Java.
   
   Peças grandes: 2 verdes, 2 amarelas, 2 azuis
 
-  No começo do jogo, cada jogador recebe 3 peças de cada tamanho, totalizando 9 peças. Cada jogador posiciona uma peça no tabuleiro, sendo que peças de cores iguais não podem ser inseridas em posições adjacentes; nem mesmo seus vértices podem se encostar. A vitória é garantida ao jogador que usar todas as suas peças ou possuir menos pontos quando não houver mais posições válidas.
+  No começo do jogo, cada jogador recebe 9 peças. Cada jogador posiciona uma peça no tabuleiro por turno, sendo que peças de cores iguais não podem ser inseridas em posições adjacentes; nem mesmo seus vértices podem se encostar. A vitória é garantida ao jogador que usar todas as suas peças ou possuir menos pontos quando não houver mais posições válidas.
 
